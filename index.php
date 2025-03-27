@@ -6,19 +6,29 @@ class Movie {
     public $director;
     public $year;
     public $duration;
-    public $genre;
+    public $genres;
 
-    function __construct($_title, $_director, $_year, $_duration, Genre $_genre) {
+    function __construct($_title, $_director, $_year, $_duration, array $_genres) {
         $this->title = $_title;
         $this->director = $_director;
         $this->year = $_year;
         $this->duration = $_duration;
-        $this->genre = $_genre;
+        $this->genres = $_genres;
     }
 
     public function getMovieInfo() {
         return "$this->title, diretto da $this->director.";
     }
+
+    public function getMovieGenres() {
+        $names = [];
+
+        foreach($this->genres as $genre) {
+            $names[] = $genre->name;
+        }
+        return implode(", ", $names);
+    }
+
 }
 
 class Genre {
@@ -35,8 +45,11 @@ class Genre {
 $drama = new Genre("Drammatico", "Film emotivamente intensi");
 $thriller = new Genre("Thriller", "Film con suspense e colpi di scena");
 
-$theLastSamurai = new Movie("The Last Samurai", "Edward Zwick", 2003, 150, $drama);
-$theImitationGame = new Movie("The Imitation Game", "Morten Tyldum", 2014, 115, $thriller);
+$lastSamuraiGenres = [$drama, $thriller];
+$imitationGameGenres = [$drama, $thriller];
+
+$theLastSamurai = new Movie("The Last Samurai", "Edward Zwick", 2003, 150, $lastSamuraiGenres);
+$theImitationGame = new Movie("The Imitation Game", "Morten Tyldum", 2014, 115, $imitationGameGenres);
 
 echo $theLastSamurai->getMovieInfo();
 

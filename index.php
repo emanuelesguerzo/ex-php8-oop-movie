@@ -1,13 +1,28 @@
 <?php
 
+trait HasRating {
+
+    public $rating;
+
+    public function getRatingStars() {
+        return str_repeat("★", $this->rating) . str_repeat("☆", 5 - $this->rating);
+    }
+
+}
+
 class Movie {
 
+    // Trait
+    use HasRating;
+
+    // Instance Variables
     public $title;
     public $director;
     public $year;
     public $duration;
     public $genres;
 
+    // Constructor
     function __construct($_title, $_director, $_year, $_duration, array $_genres) {
         $this->title = $_title;
         $this->director = $_director;
@@ -51,7 +66,7 @@ $historical = new Genre("Storico", "Film ambientati in epoche passate, spesso ba
 $war = new Genre("Guerra", "Film che raccontano conflitti armati e le esperienze dei soldati");
 $suspense = new Genre("Suspense", "Film che creano tensione e mistero, tenendo lo spettatore col fiato sospeso");
 
-// Genres Arrays
+// Genre Arrays
 $lastSamuraiGenres = [$adventure, $drama, $historical, $action];
 $imitationGameGenres = [$historical, $thriller, $war, $action, $suspense];
 
@@ -59,8 +74,17 @@ $imitationGameGenres = [$historical, $thriller, $war, $action, $suspense];
 $theLastSamurai = new Movie("The Last Samurai", "Edward Zwick", 2003, 150, $lastSamuraiGenres);
 $theImitationGame = new Movie("The Imitation Game", "Morten Tyldum", 2014, 115, $imitationGameGenres);
 
-echo $theLastSamurai->getMovieInfo();
+// Trait Rating
+$theLastSamurai->rating = 4;
+$theImitationGame->rating = 5;
 
+echo $theLastSamurai->getMovieInfo();
+echo "Voto:" . $theLastSamurai->getRatingStars() . "<br>";
+
+echo $theImitationGame->getMovieInfo();
+echo "Voto:" . $theImitationGame->getRatingStars();
+
+// var_dump
 var_dump($theLastSamurai);
 var_dump($theImitationGame);
 

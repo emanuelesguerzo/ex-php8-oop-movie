@@ -14,8 +14,8 @@ $lastSamuraiGenres = [$adventure, $drama, $historical, $action];
 $imitationGameGenres = [$historical, $thriller, $war, $action, $suspense];
 
 // Movies
-$theLastSamurai = new Movie("The Last Samurai", "Edward Zwick", 2003, 150, $lastSamuraiGenres);
-$theImitationGame = new Movie("The Imitation Game", "Morten Tyldum", 2014, 115, $imitationGameGenres);
+$theLastSamurai = new Movie("The Last Samurai", "Edward Zwick", "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Last_Samurai.jpg", 2003, 150, $lastSamuraiGenres);
+$theImitationGame = new Movie("The Imitation Game", "Morten Tyldum", "https://upload.wikimedia.org/wikipedia/en/8/87/The_Imitation_Game_%282014%29.png", 2014, 115, $imitationGameGenres);
 
 // Trait Rating
 $theLastSamurai->rating = 4;

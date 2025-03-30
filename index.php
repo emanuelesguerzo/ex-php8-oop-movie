@@ -10,13 +10,7 @@ require_once "./db.php";
 include "partials/header.php";
 
 // Main
-echo "<ul>";
-foreach ($movies as $movie) {
-    echo "<li>";
-    include "partials/movie-card.php";
-    echo "</li>";
-}
-echo "</ul>";
+include "partials/movie-card.php";
 
 // Footer
 include "partials/footer.php";

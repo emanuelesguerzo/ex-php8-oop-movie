@@ -1,0 +1,142 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* GLOBAL STYLES */
+body {
+    font-family: "Roboto", sans-serif !important;
+    background-color: #242323 !important;
+    color: #ffffff !important;
+
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+/* HEADER */
+header {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px 0 15px 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    width: 150px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 20px;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* COL */
+.col {
+    width: calc((100% - 90px) / 4);
+}
+
+
+/* MOVIE CARD */
+.movie-card {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Card Container */
+.card-container {
+    width: 100%;
+    height: 450px;
+}
+
+/* Card Image */
+.card-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: filter 0.7s ease-in-out;
+}
+
+/* Card Text */
+.card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #00000080; 
+    color: #ffffff;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+    border-radius: 12px;
+}
+
+.movie-card:hover .card-text {
+    opacity: 1;
+}
+
+.movie-card:hover .card-container img {
+    filter: blur(100px);
+}
+
+/* FOOTER */
+footer {
+    margin-top: auto;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* MEDIA QUERIES */
+/* Laptop */
+@media screen and (max-width: 1024px) {
+    .col {
+        width: calc((100% - 60px) / 3);
+    }
+}
+/* Tablet */
+@media screen and (max-width: 768px) {
+    .col {
+        width: calc((100% - 30px) / 2);
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .col {
+        width: 100%;
+    }
+}

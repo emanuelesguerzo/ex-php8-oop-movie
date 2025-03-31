@@ -24,5 +24,3 @@
     <header>
         <a href="./index.php"><img class="logo" src="./img/boolflix-logo.png" alt="Logo di Boolflix"></a>
     </header>
-
-    <h1>Film consigliati per te!</h1>

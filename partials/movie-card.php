@@ -1,4 +1,6 @@
 <div class="container">
+<h1 class="">Film consigliati per te!</h1>
+<a class="add-movie-btn" href="./add-movie.php">+ Aggiungi un nuovo film!</a>
     <ul class="row">
         <?php foreach ($movies as $movie) : ?>
             <li class="col">

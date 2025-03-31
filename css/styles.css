@@ -28,8 +28,12 @@ body {
 }
 
 .container {
-    width: 75%;
-    margin: 0 auto;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* HEADER */
@@ -37,10 +41,10 @@ header {
     background-color: #000000;
     color: #ffffff;
     padding: 20px 0 15px 20px;
-    height: 80px;
     display: flex;
     align-items: center;
     z-index: 10;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -48,16 +52,20 @@ header {
 }
 
 h1 {
-    font-size: 24px;
-    margin: 20px;
+    font-size: 36px;
+    color: #e50914; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
 }
 
 /* ROW */
 .row {
     display: flex;
-    margin: 20px 0;
+    align-items: center;
     flex-wrap: wrap;
     gap: 30px;
+    margin-bottom: 40px;
 }
 
 /* COL */
@@ -75,7 +83,7 @@ h1 {
 /* Card Container */
 .card-container {
     width: 100%;
-    height: 450px;
+    aspect-ratio: 2 / 4;
 }
 
 /* Card Image */
@@ -110,14 +118,52 @@ h1 {
     filter: blur(100px);
 }
 
+/* ADD MOVIE BUTTON */
+.add-movie-btn {
+    background-color: #00000080; 
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+    margin-bottom: 30px;
+}
+.add-movie-btn:hover {
+    background-color: #ffffff80; 
+    color: #000000;
+}
+
 /* FOOTER */
 footer {
-    margin-top: auto;
     background-color: #000000;
-    color: #ffffff;
+    color: #ffffff; 
     padding: 20px;
     text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: auto;
     z-index: 10;
+}
+
+footer .footer-links {
+    margin-bottom: 10px;
+}
+
+footer .footer-links a {
+    color: #757575; 
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+footer .footer-links a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: #757575;
 }
 
 /* MEDIA QUERIES */
@@ -127,15 +173,24 @@ footer {
         width: calc((100% - 60px) / 3);
     }
 }
+
 /* Tablet */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 835px) {
+    .container {
+        width: 90%;
+    }
+
     .col {
         width: calc((100% - 30px) / 2);
     }
 }
 
 /* Mobile */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 425px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+
     .col {
         width: 100%;
     }

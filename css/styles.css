@@ -13,12 +13,11 @@ a {
     text-decoration: none;
 }
 
-/* GLOBAL STYLES */
+/* LAYOUT */
 body {
-    font-family: "Roboto", sans-serif !important;
-    background-color: #242323 !important;
-    color: #ffffff !important;
-
+    font-family: "Roboto", sans-serif;
+    background-color: #242323;
+    color: #ffffff;
 }
 
 .wrapper {
@@ -28,7 +27,7 @@ body {
 }
 
 .container {
-    width: 70%;
+    width: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -38,13 +37,14 @@ body {
 
 /* HEADER */
 header {
-    background-color: #000000;
+    background-color: #00000070;
     color: #ffffff;
     padding: 20px 0 15px 20px;
     display: flex;
     align-items: center;
     z-index: 10;
     margin-bottom: 20px;
+    box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -52,11 +52,13 @@ header {
 }
 
 h1 {
-    font-size: 36px;
-    color: #e50914; 
+    font-size: 1.7rem;
+    color: #ffffff; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin-bottom: 20px;
     letter-spacing: 1.5px;
+    align-self: flex-start;
+    user-select: none;
 }
 
 /* ROW */
@@ -77,7 +79,7 @@ h1 {
 /* MOVIE CARD */
 .movie-card {
     position: relative;
-    cursor: pointer;
+    user-select: none;
 }
 
 /* Card Container */
@@ -108,8 +110,12 @@ h1 {
     opacity: 0;
     transition: opacity 0.7s ease-in-out;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+/* Card Hovers */
 .movie-card:hover .card-text {
     opacity: 1;
 }
@@ -118,13 +124,59 @@ h1 {
     filter: blur(100px);
 }
 
+/* Movie Title */
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Directed */
+.directed {
+    color: #757575; 
+}
+
+/* Description */
+.description {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Watch Now */
+.watch-now {
+    color: #ffffff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.6s ease-in-out; 
+}
+
+.watch-now:hover {
+    color: #e50914; 
+    text-decoration: underline;
+}
+
+.fa-solid.fa-arrow-right {
+    margin-left: 5px;
+}
+
+/* Duration - Genres - Rating */
+.duration {
+    margin-bottom: 10px;
+}
+
+.duration,
+.genres,
+.rating {
+    font-size: 0.9rem;
+    color: #757575; 
+}
+
 /* ADD MOVIE BUTTON */
 .add-movie-btn {
     background-color: #00000080; 
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
     margin-bottom: 30px;
@@ -136,24 +188,22 @@ h1 {
 
 /* FOOTER */
 footer {
-    background-color: #000000;
+    background-color: inherit;
     color: #ffffff; 
-    padding: 20px;
+    padding: 16px;
     text-align: center;
-    font-size: 14px;
-    line-height: 1.5;
     margin-top: auto;
     z-index: 10;
 }
 
 footer .footer-links {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 footer .footer-links a {
     color: #757575; 
     margin: 0 15px;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 footer .footer-links a:hover {
@@ -161,14 +211,13 @@ footer .footer-links a:hover {
 }
 
 footer p {
-    margin: 10px 0 0;
-    font-size: 12px;
     color: #757575;
+    font-size: 0.8rem; 
 }
 
 /* MEDIA QUERIES */
 /* Laptop */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1110px) {
     .col {
         width: calc((100% - 60px) / 3);
     }
@@ -186,9 +235,29 @@ footer p {
 }
 
 /* Mobile */
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
+    header {
+        padding: 12px 6px;
+    }
+
+    .card-container {
+        aspect-ratio: 2 / 3;
+    }
+
+    .logo {
+        width: 100px;
+    }
+    
     h1 {
         font-size: 1.3rem;
+    }
+
+    .row {
+        gap: 35px;
+    }
+
+    .add-movie-btn {
+        margin-bottom: 20px;
     }
 
     .col {
